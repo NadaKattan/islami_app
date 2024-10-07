@@ -144,7 +144,7 @@ class QuranTab extends StatelessWidget {
                     ),
                   ),
               itemCount: suraNames.length,
-              separatorBuilder: (context, index) => Divider()),
+              separatorBuilder: (context, index) => const Divider()),
         )
       ],
     );

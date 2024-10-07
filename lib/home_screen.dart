@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int currentIndex = 0;
+  int currentIndex = 2;
   List<Widget> tabs = [
     QuranTab(),
     const HadethTab(),
@@ -26,9 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/default_bg.png"),
-              fit: BoxFit.fill,),),
+        image: DecorationImage(
+          image: AssetImage("assets/images/default_bg.png"),
+          fit: BoxFit.fill,
+        ),
+      ),
       child: Scaffold(
         appBar: AppBar(
           title: const Text("إسلامي"),

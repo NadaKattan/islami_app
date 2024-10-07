@@ -26,7 +26,7 @@ class SuraContent extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("إسلامي"),
+          title: const Text("إسلامي"),
         ),
         body: Container(
           decoration: BoxDecoration(
