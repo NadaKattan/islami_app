@@ -101,7 +101,7 @@ class _SebhaTabState extends State<SebhaTab> {
   void increase() {
     count++;
     rotatecount += pi;
-    if (count % 3 == 0) {
+    if (count % 33 == 0) {
       index++;
       if (index == 3) index = 0;
     }
