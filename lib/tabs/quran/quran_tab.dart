@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:islami_app/tabs/quran/sura_content.dart';
 
 class QuranTab extends StatelessWidget {
-  //const QuranTab({super.key});
+  // const QuranTab({super.key});
   List<String> suraNames = [
     "الفاتحة",
     "البقرة",

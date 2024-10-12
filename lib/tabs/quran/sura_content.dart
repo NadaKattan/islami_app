@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:islami_app/tabs/quran/loading_indicator.dart';
 import 'package:islami_app/tabs/quran/quran_tab.dart';
 import 'package:islami_app/theme_app.dart';
 
-class SuraContent extends StatelessWidget {
+class SuraContent extends StatefulWidget {
   // const SuraContent({super.key});
   static const String routeName = "/sura_content";
-  List<String> ayat = [
-    'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ ',
-    'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
-    'الرَّحْمَنِ الرَّحِيمِ',
-    'مَالِكِ يَوْمِ الدِّينِ',
-    'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
-    'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
-    'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّين'
-  ];
+
+  @override
+  State<SuraContent> createState() => _SuraContentState();
+}
+
+class _SuraContentState extends State<SuraContent> {
+  late SuraNames args;
+  List<String> ayat = [];
+
   @override
   Widget build(BuildContext context) {
-    SuraNames args = ModalRoute.of(context)!.settings.arguments as SuraNames;
+    args = ModalRoute.of(context)!.settings.arguments as SuraNames;
+    if (ayat.isEmpty) loadSuraFile();
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -43,24 +46,35 @@ class SuraContent extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Expanded(
-                  child: ListView.builder(
-                itemBuilder: (_, index) {
-                  return Text(
-                    ayat[index],
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleLarge,
-                  );
-                },
-                itemCount: ayat.length,
-              ))
+                  child: ayat.isEmpty
+                      ? const LoadingIndicator()
+                      : ListView.builder(
+                          itemBuilder: (_, index) {
+                            return Text(
+                              ayat[index],
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.titleLarge,
+                            );
+                          },
+                          itemCount: ayat.length,
+                        ))
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> loadSuraFile() async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    String sura =
+        await rootBundle.loadString("assets/quran/${args.index + 1}.txt");
+    ayat = sura.split("\r\n");
+    setState(() {});
+    // print("object");
   }
 }
