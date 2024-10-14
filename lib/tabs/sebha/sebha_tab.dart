@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:math' show pi;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -13,11 +14,16 @@ class SebhaTab extends StatefulWidget {
 
 class _SebhaTabState extends State<SebhaTab> {
   int count = 0;
-  List<String> state = ["سبحان الله", "الحمدلله", "الله أكبر"];
+  late List<String> state;
   int index = 0;
   double rotatecount = 0;
   @override
   Widget build(BuildContext context) {
+    state = [
+      AppLocalizations.of(context)!.sobhan,
+      AppLocalizations.of(context)!.elhamd,
+      AppLocalizations.of(context)!.akbar
+    ];
     return Column(
       children: [
         Center(
@@ -62,7 +68,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 height: 40,
               ),
               Text(
-                "عدد التسبيحات",
+                AppLocalizations.of(context)!.tasabeh_number,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(

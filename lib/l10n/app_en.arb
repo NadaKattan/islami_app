@@ -7,5 +7,9 @@
   "settings": "Settings",
   "language": "Language",
   "dark_theme": "Dark Theme",
-  "quran_radio":"Quran Radio"
+  "quran_radio": "Quran Radio",
+  "tasabeh_number": "Tasabeh Number",
+  "sobhan":"Sobhan Allah",
+  "elhamd":"Elhamdullah",
+  "akbar":"Allah-Akbar"
 }

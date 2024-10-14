@@ -18,7 +18,6 @@ class _SettingsTabState extends State<SettingsTab> {
   ];
 @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Provider.of<SettingsProvider>(context,listen: false).getData();
   }

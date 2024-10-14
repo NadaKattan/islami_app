@@ -6,6 +6,10 @@
   "sebha": "سبحة",
   "settings": "الإعدادات",
   "language": "اللغة",
-  "dark_theme":"الوضع المظلم",
-  "quran_radio":"إذاعة القرآن الكريم"
+  "dark_theme": "الوضع المظلم",
+  "quran_radio": "إذاعة القرآن الكريم",
+  "tasabeh_number": "عدد التسبيحات",
+  "sobhan": "سبحان الله",
+  "elhamd": "الحمدلله",
+  "akbar": "الله أكبر"
 }
