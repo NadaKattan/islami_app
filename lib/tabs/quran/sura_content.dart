@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:islami_app/tabs/quran/loading_indicator.dart';
 import 'package:islami_app/tabs/quran/quran_tab.dart';
 import 'package:islami_app/theme_app.dart';
+import 'package:provider/provider.dart';
+
+import '../settings/settings_provider.dart';
 
 class SuraContent extends StatefulWidget {
   // const SuraContent({super.key});
@@ -21,9 +24,9 @@ class _SuraContentState extends State<SuraContent> {
     args = ModalRoute.of(context)!.settings.arguments as SuraNames;
     if (ayat.isEmpty) loadSuraFile();
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/default_bg.png"),
+          image: AssetImage("assets/images/${Provider.of<SettingsProvider>(context).background}.png"),
           fit: BoxFit.fill,
         ),
       ),
@@ -33,7 +36,7 @@ class _SuraContentState extends State<SuraContent> {
         ),
         body: Container(
           decoration: BoxDecoration(
-              color: ThemeApp.white, borderRadius: BorderRadius.circular(25)),
+              color: Provider.of<SettingsProvider>(context).isDark?ThemeApp.darkPrimary:ThemeApp.white, borderRadius: BorderRadius.circular(25)),
           margin: EdgeInsets.only(
               top: MediaQuery.sizeOf(context).height * 0.12,
               bottom: MediaQuery.sizeOf(context).height * 0.05,

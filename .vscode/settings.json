@@ -1,3 +1,4 @@
 {
-  "BracketHighlighter.enableExtension": false
+  "BracketHighlighter.enableExtension": false,
+  "cmake.sourceDirectory": "D:/Flutter/Projects/Flutter_Projects/islami_app/windows"
 }
