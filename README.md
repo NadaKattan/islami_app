@@ -17,3 +17,10 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Video
 [https://github.com/NadaKattan/flutter-tasks/issues/1#issue-2664400561](https://github.com/user-attachments/assets/99c3de8b-f48a-496c-932f-230c3c0fddfa)
+
+## Packages
+- Provider
+- flutter_localizations
+- intl
+- shared_preferences
+- flutter_native_splash
